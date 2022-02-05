@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="filter-container">
+        <form #f="ngForm" (ngSubmit)="f.valid && searchSubmit(f)" novalidate>
+            <mat-form-field appearance="outline" class="col-md-3">
+                <mat-label>Competencia</mat-label>
+                <mat-select name="competencia" [ngModel]="(competenciaSelectedId$ | async)" (selectionChange)="onCompetenciaSelect($event)">
+                    <ng-container *ngIf="(competencias$ | async) as competencias">
+                        <mat-option [value]="competencia.id" *ngFor="let competencia of competencias">
+                            {{ competencia.mesAnoDisplay }}</mat-option>
+                    </ng-container>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="col-md-9">
+                <mat-label>Pesquisar</mat-label>
+                <input type="search" required #filter="ngModel" name="filter" matInput cdkFocusInitial [ngModel]="(procedimentosFilter$ | async)"
+                    placeholder="Pesquisar">
+                <button matSuffix mat-icon-button aria-label="Pesquisar" style="top: 0;">
+                    <fa-icon icon="search"></fa-icon>
+                </button>
+                <mat-error *ngIf="filter.errors?.required">Informe um filtro para pesquisar</mat-error>
+            </mat-form-field>
+        </form>
+    </div>
+
+    <mat-nav-list>
+        <a mat-list-item *ngFor="let procedimento of (procedimentos$ | async); let last = last;" [routerLink]="['/sigtap/procedimento/' + procedimento.codigo ]">
+            <mat-divider *ngIf="!last"></mat-divider>
+            <h4 matLine>{{procedimento.nome}}</h4>
+            <p matLine> {{procedimento.codigo}}</p>
+        </a>
+    </mat-nav-list>
+</div>

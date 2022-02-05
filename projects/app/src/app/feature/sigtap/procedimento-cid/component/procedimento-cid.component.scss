@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+}
+
+.spinner-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.table-container {
+    border: lightgrey 1px solid;
+    border-radius: 5px;
+    overflow: hidden;
+
+    table {
+        width: 100%;
+    }
+}

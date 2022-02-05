@@ -1,0 +1,5 @@
+$ts-primary: mat-palette($mat-light-blue, 900);
+$ts-accent: mat-palette($mat-teal, 300);
+$ts-warn: mat-palette($mat-red, 500);
+
+$ts-theme: mat-light-theme($ts-primary, $ts-accent, $ts-warn);

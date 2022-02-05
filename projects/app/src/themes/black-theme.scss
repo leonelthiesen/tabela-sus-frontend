@@ -1,0 +1,9 @@
+$ts-black-primary: mat-palette($mat-blue-grey, 500, 300, 900);
+$ts-black-accent: mat-palette($mat-blue, 300);
+$ts-black-warn: mat-palette($mat-red, 500);
+
+$ts-black-theme: mat-dark-theme(
+    $ts-black-primary,
+    $ts-black-accent,
+    $ts-black-warn
+);

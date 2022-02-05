@@ -1,0 +1,64 @@
+<ng-container *ngIf="(procedimento$ | async) as procedimento" class="procedimento-tab">
+    <table>
+        <tr>
+            <td>Código:</td>
+            <td>{{ procedimento.codigo }}</td>
+        </tr>
+        <tr>
+            <td>Nome:</td>
+            <td>{{ procedimento.nome }}</td>
+        </tr>
+        <tr>
+            <td>Complexidade:</td>
+            <td>{{ procedimento.tipoComplexidade }}</td>
+        </tr>
+        <tr>
+            <td>Sexo:</td>
+            <td>{{ procedimento.tipoSexo }}</td>
+        </tr>
+        <tr>
+            <td>Quantidade Máxima:</td>
+            <td>{{ procedimento.quantidadeMaximaExecucaoDisplay }}</td>
+        </tr>
+        <tr>
+            <td>Média de Permanência:</td>
+            <td>{{ procedimento.quantidadeDiasPermanenciaDisplay }}</td>
+        </tr>
+        <tr>
+            <td>Pontos:</td>
+            <td>{{ procedimento.quantidadePontosDisplay }}</td>
+        </tr>
+        <tr>
+            <td>Idade Mínima:</td>
+            <td>{{ procedimento.idadeMinimaDisplay }}</td>
+        </tr>
+        <tr>
+            <td>Idade Máxima:</td>
+            <td>{{ procedimento.idadeMaximaDisplay }}</td>
+        </tr>
+        <tr>
+            <td>Serviço Hospitalar:</td>
+            <td>{{ procedimento.valorSh | currency:'BRL' }}</td>
+        </tr>
+        <tr>
+            <td>Serviço Ambulatorial:</td>
+            <td>{{ procedimento.valorSa | currency:'BRL' }}</td>
+        </tr>
+        <tr>
+            <td>Serviço Profissional:</td>
+            <td>{{ procedimento.valorSp | currency:'BRL' }}</td>
+        </tr>
+        <tr>
+            <td>Financiamento:</td>
+            <td>{{ procedimento.financiamento?.codigo }} - {{ procedimento.financiamento?.nome }}</td>
+        </tr>
+        <tr>
+            <td>Rúbrica:</td>
+            <td>{{ procedimento.codigoRubrica }}</td>
+        </tr>
+        <tr>
+            <td>Tempo de Permanência:</td>
+            <td>{{ procedimento.quantidadeTempoPermanenciaDisplay }}</td>
+        </tr>
+    </table>
+</ng-container>

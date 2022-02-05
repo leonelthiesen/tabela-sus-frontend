@@ -1,0 +1,118 @@
+@import '../../../../styles-variables';
+
+.theme-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+mat-sidenav-container {
+    height: 100%;
+    width: 100%;
+
+    .toolbar {
+        position: fixed;
+        width: 100%;
+        display: flex;
+        z-index: 10;
+
+        .nav-button {
+            margin: 0 10px 0 0;
+        }
+
+        fa-icon {
+            font-size: 24px;
+        }
+
+        .branding {
+            cursor: pointer;
+            overflow: hidden;
+            padding-top: 4px;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+
+            &.center {
+                text-align: center;
+            }
+
+            img {
+                position: relative;
+                top: -2px;
+                width: 48px;
+                height: 48px;
+                vertical-align: middle;
+            }
+        }
+
+        .spacer {
+            flex: 1 1 auto;
+        }
+
+        //   @media (max-width: map-get($grid-breakpoints, lg)) {
+        //     .nav-button {
+        //       min-width: 0;
+        //       padding: 0 10px;
+        //     }
+        //   }
+    }
+
+    .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+
+        .content {
+            flex: 1 0 auto;
+            margin-top: 64px;
+            overflow: hidden;
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            box-sizing: border-box;
+        }
+
+        .footer {
+            flex: 0 0 auto;
+            padding: 0 15px;
+            text-align: center;
+
+            .signature {
+                padding: 10px 0;
+            }
+        }
+    }
+
+    @media (max-width: $toolbar-breakpoint) {
+        .content {
+            margin-top: 56px !important;
+        }
+    }
+}
+
+mat-sidenav {
+    width: 250px;
+
+    .branding {
+        height: 64px;
+        padding: 8px 10px;
+        font-size: 20px;
+        font-weight: 500;
+
+        img {
+            height: 48px;
+            margin: 2px 10px 0 0;
+        }
+
+        span {
+            position: relative;
+            top: 3px;
+        }
+    }
+
+    .mat-nav-list {
+        padding-top: 0;
+    }
+}
