@@ -18,10 +18,6 @@ COPY --from=builder /usr/src/app/dist/app/ /etc/nginx/html
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-# ADD fullchain.pem /etc/letsencrypt/live/tabelasus.com.br/
-
-# ADD privkey.pem /etc/letsencrypt/live/tabelasus.com.br/
-
 EXPOSE 80
 
 ENTRYPOINT ["/usr/sbin/nginx"]
