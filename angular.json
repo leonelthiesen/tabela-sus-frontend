@@ -22,7 +22,6 @@
             "main": "projects/app/src/main.ts",
             "polyfills": "projects/app/src/polyfills.ts",
             "tsConfig": "projects/app/tsconfig.app.json",
-            "aot": true,
             "assets": [
               "projects/app/src/android-chrome-192x192.png",
               "projects/app/src/android-chrome-512x512.png",
@@ -39,7 +38,13 @@
             "styles": [
               "projects/app/src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -69,7 +74,8 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",

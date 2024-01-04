@@ -13,7 +13,6 @@ import { SettingsFacade } from '../../settings/settings.facade';
 })
 export class MainLayoutComponent implements OnInit {
     @ViewChild('sidenav') sidenav?: MatSidenav;
-    logo = require('../../../../assets/logo.png').default;
     showHeader = false;
     showSidebar = false;
     showFooter = false;
