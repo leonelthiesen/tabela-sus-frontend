@@ -8,13 +8,13 @@ import { ProcedimentoCidComponent } from './procedimento-cid/component/procedime
 import { ProcedimentoDescricaoComponent } from './procedimento-descricao/component/procedimento-descricao/procedimento-descricao.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'search' },
+    { path: '', pathMatch: 'full', redirectTo: 'search' },
     { path: 'search', component: ProcedimentoListComponent, data: { title: 'Pesquisa' } },
     {
         path: 'procedimento/:codigoProcedimento',
         component: ProcedimentoComponent,
         children: [
-            { path: '', redirectTo: 'detalhe' },
+            { path: '', pathMatch: 'full', redirectTo: 'detalhe' },
             { path: 'detalhe', component: ProcedimentoDetalheComponent, data: { title: 'Detalhe' } },
             { path: 'descricao', component: ProcedimentoDescricaoComponent, data: { title: 'Descrição' } },
             { path: 'cid', component: ProcedimentoCidComponent, data: { title: 'CID' } }
