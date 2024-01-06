@@ -1,15 +1,14 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { Component, ChangeDetectionStrategy, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { CompetenciasFacade } from '../../core/competencias/competencias.facade';
 import { ImporterFacade } from '../sigtap/importer/importer.facade';
 import { Competencia } from '../../core/competencias/competencia.model';
-import { selectCompetencias } from '../../core/competencias/competencias.state';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../../shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
