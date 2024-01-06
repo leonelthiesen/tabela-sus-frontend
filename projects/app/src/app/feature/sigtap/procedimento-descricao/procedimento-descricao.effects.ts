@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Actions, Effect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, switchMap, withLatestFrom } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
@@ -13,18 +13,19 @@ import { ProcedimentoDescricaoApi } from './procedimento-descricao.api';
 @Injectable()
 export class ProcedimentoDescricaoEffects {
 
-    @Effect()
-    loadProcedimentoDescricao$ = this.actions$.pipe(
-        ofType(procedimentoDescricaoActions.procedimentoDescricaoGet),
-        withLatestFrom(
-            this.store.select(selectCompetenciaSelectedId),
-            this.store.select(selectProcedimento)
-        ),
-        switchMap(([action, competenciaId, procedimento]) => {
-            return this.procedimentoDescricaoApi.getByCompetenciaIdProcedimento(competenciaId, procedimento.id).pipe(
-                map(procedimentoDescricao => procedimentoDescricaoActions.procedimentoDescricaoGetSuccess({ procedimentoDescricao })),
-                catchError(error => of(procedimentoDescricaoActions.procedimentoDescricaoGetError({ error }))));
-        })
+    loadProcedimentoDescricao$ = createEffect(
+        () => this.actions$.pipe(
+            ofType(procedimentoDescricaoActions.procedimentoDescricaoGet),
+            withLatestFrom(
+                this.store.select(selectCompetenciaSelectedId),
+                this.store.select(selectProcedimento)
+            ),
+            switchMap(([action, competenciaId, procedimento]) => {
+                return this.procedimentoDescricaoApi.getByCompetenciaIdProcedimento(competenciaId, procedimento.id).pipe(
+                    map(procedimentoDescricao => procedimentoDescricaoActions.procedimentoDescricaoGetSuccess({ procedimentoDescricao })),
+                    catchError(error => of(procedimentoDescricaoActions.procedimentoDescricaoGetError({ error }))));
+            })
+        )
     );
 
     constructor(

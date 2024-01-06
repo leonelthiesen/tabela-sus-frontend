@@ -29,15 +29,15 @@ export const metaReducers: MetaReducer<AppState>[] = [
 //     }
 // }
 
-// export const selectAuthState = createFeatureSelector<AppState, AuthState>(
+// export const selectAuthState = createFeatureSelector<AuthState>(
 //     'auth'
 // );
 
-// export const selectCompetenciasState = createFeatureSelector<AppState, CompetenciasState>('competencias');
+// export const selectCompetenciasState = createFeatureSelector<CompetenciasState>('competencias');
 
-export const selectSettingsState = createFeatureSelector<AppState, SettingsState>('settings');
+export const selectSettingsState = createFeatureSelector<SettingsState>('settings');
 
-export const selectRouterState = createFeatureSelector<AppState, RouterReducerState<RouterStateUrl>>('router');
+export const selectRouterState = createFeatureSelector<RouterReducerState<RouterStateUrl>>('router');
 
 export interface AppState {
     // auth: AuthState;
