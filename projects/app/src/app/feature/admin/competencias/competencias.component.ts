@@ -7,7 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDatepicker } from '@angular/material/datepicker';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { format, isValid } from 'date-fns';
 
 import { CompetenciasFacade } from '../../../core/competencias/competencias.facade';
@@ -48,7 +48,7 @@ export class CompetenciasComponent implements AfterViewInit, OnDestroy {
     dataSource = new MatTableDataSource<Competencia>();
     subscription: Subscription = new Subscription();
     selection = new SelectionModel<Competencia>(true, []);
-    dateCompetencia = new FormControl(new Date());
+    dateCompetencia = new UntypedFormControl(new Date());
 
     @ViewChild(MatDatepicker) dp?: MatDatepicker<Date>;
     @ViewChild(MatPaginator) paginator?: MatPaginator;
