@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
-import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
@@ -14,8 +14,9 @@ import { CompetenciasFacade } from '../../../core/competencias/competencias.faca
 import { ImporterFacade } from '../../sigtap/importer/importer.facade';
 import { Competencia } from '../../../core/competencias/competencia.model';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../../../shared/confirm-dialog/confirm-dialog.component';
-import { NgxDateFnsDateAdapter } from 'ngx-mat-datefns-date-adapter';
+import { DateFnsAdapter } from '@angular/material-date-fns-adapter';
 import { ErrorDialogComponent, ErrorDialogModel } from '../../../shared/error-dialog/error-dialog.component';
+import { ptBR } from 'date-fns/locale';
 
 export const MY_FORMATS = {
     parse: {
@@ -35,8 +36,9 @@ export const MY_FORMATS = {
     styleUrls: ['./competencias.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
+        { provide: MAT_DATE_LOCALE, useValue: ptBR },
         {
-            provide: DateAdapter, useClass: NgxDateFnsDateAdapter
+            provide: DateAdapter, useClass: DateFnsAdapter, deps: [MAT_DATE_LOCALE]
         },
         { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
     ]

@@ -31,7 +31,6 @@ import { SettingsFacade } from './settings/settings.facade';
 import { SettingsEffects } from './settings/settings.effects';
 import { RouterEffects } from './router/router.effects';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgxMatDateFnsDateModule } from 'ngx-mat-datefns-date-adapter';
 
 export {
     AppState,
@@ -66,11 +65,10 @@ export {
         StoreDevtoolsModule.instrument({
             maxAge: 25, // Retains last 25 states
             logOnly: false // Restrict extension to log-only mode
-        }),
+        , connectInZone: true}),
 
         // 3rd party
         FontAwesomeModule,
-        NgxMatDateFnsDateModule
     ],
     exports: [
         MainLayoutComponent,

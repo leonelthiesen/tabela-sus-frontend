@@ -1,18 +1,11 @@
+@use '@angular/material' as mat;
+@include mat.core();
+
 @import 'styles-variables';
 
 @import 'bootstrap/scss/bootstrap-reboot';
 @import 'bootstrap/scss/bootstrap-grid';
 @import 'styles-reset';
-
-// Custom Theming for Angular Material
-// For more information: https://material.angular.io/guide/theming
-@import '@angular/material/theming';
-// Plus imports for other components in your app.
-
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
 
 @import './themes/default-theme';
 @import './themes/black-theme';
@@ -24,16 +17,17 @@
 @mixin custom-components-theme($theme) {
     @include ts-styles-reset-theme($theme);
     @include ts-main-layout-component-theme($theme);
-    @include ts-home-component-theme($ts-black-theme);
+    @include ts-home-component-theme($theme);
 }
 
+@include mat.all-component-themes($ts-theme);
+
 .default-theme {
-    @include angular-material-theme($ts-theme);
     @include custom-components-theme($ts-theme);
 }
 
 .black-theme {
-    @include angular-material-theme($ts-black-theme);
+    @include mat.all-component-colors($ts-black-theme);    
     @include custom-components-theme($ts-black-theme);
 }
 

@@ -1,5 +1,17 @@
-$ts-primary: mat-palette($mat-light-blue, 900);
-$ts-accent: mat-palette($mat-teal, 300);
-$ts-warn: mat-palette($mat-red, 500);
+@use '@angular/material' as mat;
 
-$ts-theme: mat-light-theme($ts-primary, $ts-accent, $ts-warn);
+$ts-primary: mat.define-palette(mat.$light-blue-palette, 900);
+$ts-accent: mat.define-palette(mat.$teal-palette, 300);
+$ts-warn: mat.define-palette(mat.$red-palette, 500);
+
+$ts-typography-config: mat.define-typography-config(); 
+
+$ts-theme: mat.define-light-theme((
+    color: (
+        primary: $ts-primary,
+        accent: $ts-accent,
+        warn: $ts-warn,
+    ),    
+    typography: $ts-typography-config,
+    density: 0,
+));
