@@ -1,28 +1,30 @@
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h1>CONFIGURAÇÕES</h1>
-        </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>CONFIGURAÇÕES</h1>
     </div>
-    <br>
-    <ng-container *ngIf="settings$ | async as settings">
-        <div class="row">
-            <div class="col-md-6 group">
-                <h2>THEMES</h2>
-                <div class="icon-form-field">
-                    <mat-icon color="accent">
-                        <fa-icon icon="paint-brush" color="accent"></fa-icon>
-                    </mat-icon>
-                    <mat-form-field>
-                        <mat-select placeholder="Color Theme"
-                            [ngModel]="settings.theme" (selectionChange)="onThemeSelect($event.value)" name="themes">
-                            <mat-option *ngFor="let t of themes" [value]="t.value">
-                                {{ t.label }}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </div>
-            </div>
+  </div>
+  <br>
+    @if (settings$ | async; as settings) {
+      <div class="row">
+        <div class="col-md-6 group">
+          <h2>THEMES</h2>
+          <div class="icon-form-field">
+            <mat-icon color="accent">
+              <fa-icon icon="paint-brush" color="accent"></fa-icon>
+            </mat-icon>
+            <mat-form-field>
+              <mat-select placeholder="Color Theme"
+                [ngModel]="settings.theme" (selectionChange)="onThemeSelect($event.value)" name="themes">
+                @for (t of themes; track t) {
+                  <mat-option [value]="t.value">
+                    {{ t.label }}
+                  </mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+          </div>
         </div>
-    </ng-container>
-</div>
+      </div>
+    }
+  </div>

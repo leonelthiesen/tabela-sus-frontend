@@ -1,23 +1,27 @@
 <nav mat-tab-nav-bar class="d-none d-sm-flex" [tabPanel]="tabPanel">
-    <a mat-tab-link *ngFor="let option of adminOptions" [routerLink]="option.link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
-        {{ option.label }}
+  @for (option of adminOptions; track option) {
+    <a mat-tab-link [routerLink]="option.link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+      {{ option.label }}
     </a>
+  }
 </nav>
 
 <nav class="nav-responsive d-sm-none d-flex justify-content-center">
-    <mat-form-field class="admin-area-select">
-        <mat-select placeholder="Área de administração" [value]="rla.isActive" routerLinkActive #rla="routerLinkActive">
-            <mat-option *ngFor="let option of adminOptions" [value]="option" [routerLink]="option.link">
-                {{ option.label }}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
+  <mat-form-field class="admin-area-select">
+    <mat-select placeholder="Área de administração" [value]="rla.isActive" routerLinkActive #rla="routerLinkActive">
+      @for (option of adminOptions; track option) {
+        <mat-option [value]="option" [routerLink]="option.link">
+          {{ option.label }}
+        </mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 </nav>
 
 <!-- <div [@routeAnimations]="o.isActivated && (o.activatedRoute.routeConfig && o.activatedRoute.routeConfig.path)">
-    <router-outlet #o="outlet"></router-outlet>
+<router-outlet #o="outlet"></router-outlet>
 </div> -->
 
 <mat-tab-nav-panel #tabPanel>
-    <router-outlet #o="outlet"></router-outlet>
+  <router-outlet #o="outlet"></router-outlet>
 </mat-tab-nav-panel>

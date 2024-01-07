@@ -1,20 +1,21 @@
-<div *ngIf="(procedimento$ | async) as procedimento" class="container">
+@if ((procedimento$ | async); as procedimento) {
+  <div class="container">
     <mat-card class="procedimento-card">
-        <h1 class="procedimento-title mat-display-1">{{ procedimento.codigoDisplay }} - {{ procedimento.nome }}</h1>
-
-        <nav mat-tab-nav-bar [tabPanel]="tabPanel">
-            <a mat-tab-link
-               *ngFor="let tab of tabs"
-               [routerLink]="tab.link"
-               routerLinkActive #rla="routerLinkActive"
-               [active]="rla.isActive">
-               <!-- [disabled]="e.auth && !(isAuthenticated$ | async)" -->
-                {{ tab.label }}
-            </a>
-        </nav>
-
-        <mat-tab-nav-panel class="procedimento-tab" #tabPanel>
-            <router-outlet #o="outlet"></router-outlet>
-        </mat-tab-nav-panel>
+      <h1 class="procedimento-title mat-display-1">{{ procedimento.codigoDisplay }} - {{ procedimento.nome }}</h1>
+      <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+        @for (tab of tabs; track tab) {
+          <a mat-tab-link
+            [routerLink]="tab.link"
+            routerLinkActive #rla="routerLinkActive"
+            [active]="rla.isActive">
+            <!-- [disabled]="e.auth && !(isAuthenticated$ | async)" -->
+            {{ tab.label }}
+          </a>
+        }
+      </nav>
+      <mat-tab-nav-panel class="procedimento-tab" #tabPanel>
+        <router-outlet #o="outlet"></router-outlet>
+      </mat-tab-nav-panel>
     </mat-card>
-</div>
+  </div>
+}
