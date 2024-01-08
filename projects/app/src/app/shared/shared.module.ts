@@ -24,17 +24,12 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
-    declarations: [
-        ConfirmDialogComponent,
-        ErrorDialogComponent
-    ],
     imports: [
         // vendor
         CommonModule,
         RouterModule,
         FormsModule,
         FontAwesomeModule,
-
         // material
         MatCardModule,
         MatButtonModule,
@@ -51,7 +46,9 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatCheckboxModule,
         MatDialogModule,
         MatDatepickerModule,
-        MatNativeDateModule
+        MatNativeDateModule,
+        ConfirmDialogComponent,
+        ErrorDialogComponent
     ],
     exports: [
         // vendor
@@ -59,7 +56,6 @@ import { MatNativeDateModule } from '@angular/material/core';
         RouterModule,
         FormsModule,
         FontAwesomeModule,
-
         // material
         MatCardModule,
         MatButtonModule,
@@ -76,7 +72,6 @@ import { MatNativeDateModule } from '@angular/material/core';
         MatCheckboxModule,
         MatDialogModule,
         MatDatepickerModule,
-
         // custom components
         ConfirmDialogComponent,
         ErrorDialogComponent

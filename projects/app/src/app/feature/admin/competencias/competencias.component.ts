@@ -1,13 +1,13 @@
 import { Component, ChangeDetectionStrategy, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Subscription } from 'rxjs';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatDialog } from '@angular/material/dialog';
-import { MatDatepicker } from '@angular/material/datepicker';
-import { UntypedFormControl } from '@angular/forms';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import { UntypedFormControl, ReactiveFormsModule } from '@angular/forms';
 import { format, isValid } from 'date-fns';
 
 import { CompetenciasFacade } from '../../../core/competencias/competencias.facade';
@@ -17,6 +17,11 @@ import { ConfirmDialogComponent, ConfirmDialogModel } from '../../../shared/conf
 import { DateFnsAdapter } from '@angular/material-date-fns-adapter';
 import { ErrorDialogComponent, ErrorDialogModel } from '../../../shared/error-dialog/error-dialog.component';
 import { ptBR } from 'date-fns/locale';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 export const MY_FORMATS = {
     parse: {
@@ -41,7 +46,9 @@ export const MY_FORMATS = {
             provide: DateAdapter, useClass: DateFnsAdapter, deps: [MAT_DATE_LOCALE]
         },
         { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
-    ]
+    ],
+    standalone: true,
+    imports: [MatTableModule, MatSortModule, MatCheckboxModule, MatProgressSpinnerModule, MatPaginatorModule, MatButtonModule, MatFormFieldModule, MatInputModule, MatDatepickerModule, ReactiveFormsModule]
 })
 export class CompetenciasComponent implements AfterViewInit, OnDestroy {
     competenciaSelectedId: number | null = null;

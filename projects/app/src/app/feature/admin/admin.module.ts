@@ -8,16 +8,14 @@ import { AdminComponent } from './admin.component';
 import { CompetenciasComponent } from './competencias/competencias.component';
 
 @NgModule({
-    declarations: [
-        AdminComponent,
-        CompetenciasComponent
-    ],
     imports: [
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
         AdminRoutingModule,
-        SigtapModule
+        SigtapModule,
+        AdminComponent,
+        CompetenciasComponent
     ]
 })
 export class AdminModule { }

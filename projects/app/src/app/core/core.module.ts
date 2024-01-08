@@ -38,7 +38,6 @@ export {
 };
 
 @NgModule({
-    declarations: [MainLayoutComponent],
     imports: [
         // angular
         BrowserModule,
@@ -47,13 +46,11 @@ export {
         HttpClientModule,
         ReactiveFormsModule,
         FormsModule,
-
         // material
         MatToolbarModule,
         MatSidenavModule,
         MatButtonModule,
         MatListModule,
-
         // ngrx
         StoreModule.forRoot(reducers, { metaReducers }),
         StoreRouterConnectingModule.forRoot(),
@@ -63,12 +60,13 @@ export {
             RouterEffects
         ]),
         StoreDevtoolsModule.instrument({
-            maxAge: 25, // Retains last 25 states
-            logOnly: false // Restrict extension to log-only mode
-        , connectInZone: true}),
-
+            maxAge: 25,
+            logOnly: false,
+            connectInZone: true
+        }),
         // 3rd party
         FontAwesomeModule,
+        MainLayoutComponent,
     ],
     exports: [
         MainLayoutComponent,

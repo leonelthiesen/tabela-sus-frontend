@@ -10,12 +10,19 @@ import { CompetenciasFacade } from '../../core/competencias/competencias.facade'
 import { ImporterFacade } from '../sigtap/importer/importer.facade';
 import { Competencia } from '../../core/competencias/competencia.model';
 import { ConfirmDialogComponent, ConfirmDialogModel } from '../../shared/confirm-dialog/confirm-dialog.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @Component({
     selector: 'ts-admin',
     templateUrl: './admin.component.html',
     styleUrls: ['./admin.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [MatTabsModule, RouterLinkActive, RouterLink, MatFormFieldModule, MatSelectModule, MatOptionModule, RouterOutlet]
 })
 export class AdminComponent implements AfterViewInit, OnDestroy {
     competenciaSelectedId: number | null = null;

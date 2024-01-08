@@ -1,10 +1,13 @@
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialogTitle, MatDialogContent, MatDialogActions } from '@angular/material/dialog';
 import { Component, OnInit, Inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
     selector: 'ts-error-dialog',
     templateUrl: './error-dialog.component.html',
-    styleUrls: ['./error-dialog.component.css']
+    styleUrls: ['./error-dialog.component.css'],
+    standalone: true,
+    imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatButtonModule]
 })
 export class ErrorDialogComponent implements OnInit {
     title: string;

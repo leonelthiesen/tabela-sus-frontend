@@ -1,17 +1,23 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Subscription } from 'rxjs';
 
 import { ProcedimentoCidFacade } from '../procedimento-cid.facade';
 import { ProcedimentoCid } from '../procedimento-cid.model';
+import { AsyncPipe } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
     selector: 'ts-procedimento-cid',
     templateUrl: './procedimento-cid.component.html',
     styleUrls: ['./procedimento-cid.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [MatFormFieldModule, MatInputModule, MatProgressSpinnerModule, MatTableModule, MatSortModule, MatPaginatorModule, AsyncPipe]
 })
 export class ProcedimentoCidComponent implements OnInit, OnDestroy {
     displayedColumns: string[] = ['codigo', 'nome'];

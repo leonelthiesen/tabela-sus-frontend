@@ -1,15 +1,22 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { MatSidenav } from '@angular/material/sidenav';
+import { Router, ActivatedRoute, NavigationEnd, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 
 import { SettingsFacade } from '../../settings/settings.facade';
+import { AsyncPipe } from '@angular/common';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
     selector: 'ts-main-layout',
     templateUrl: './main-layout.component.html',
     styleUrls: ['./main-layout.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [MatSidenavModule, MatListModule, RouterLink, RouterLinkActive, MatToolbarModule, MatButtonModule, FaIconComponent, RouterOutlet, AsyncPipe]
 })
 export class MainLayoutComponent implements OnInit {
     @ViewChild('sidenav') sidenav?: MatSidenav;

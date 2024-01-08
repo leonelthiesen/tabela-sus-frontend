@@ -1,12 +1,18 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { ProcedimentoFacade } from '../procedimento/procedimento.facade';
+import { AsyncPipe } from '@angular/common';
+import { RouterLinkActive, RouterLink, RouterOutlet } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
     selector: 'ts-procedimento',
     templateUrl: './procedimento.component.html',
     styleUrls: ['./procedimento.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [MatCardModule, MatTabsModule, RouterLinkActive, RouterLink, RouterOutlet, AsyncPipe]
 })
 export class ProcedimentoComponent implements OnInit {
     procedimento$ = this.procedimentoFacade.procedimento$;

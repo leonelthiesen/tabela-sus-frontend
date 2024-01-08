@@ -25,13 +25,6 @@ import { ImporterFacade } from './importer/importer.facade';
 import { ImporterEffects } from './importer/importer.effects';
 
 @NgModule({
-    declarations: [
-        ProcedimentoListComponent,
-        ProcedimentoComponent,
-        ProcedimentoDetalheComponent,
-        ProcedimentoCidComponent,
-        ProcedimentoDescricaoComponent
-    ],
     imports: [
         SharedModule,
         CommonModule,
@@ -42,7 +35,12 @@ import { ImporterEffects } from './importer/importer.effects';
             ImporterEffects
         ]),
         StoreModule.forFeature(FEATURE_NAME, reducers),
-        SigtapRoutingModule
+        SigtapRoutingModule,
+        ProcedimentoListComponent,
+        ProcedimentoComponent,
+        ProcedimentoDetalheComponent,
+        ProcedimentoCidComponent,
+        ProcedimentoDescricaoComponent
     ],
     providers: [
         ProcedimentoApi,
