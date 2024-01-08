@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { SharedModule } from '../../shared/shared.module';
+
 import { SigtapRoutingModule } from './sigtap-routing.module';
 import { FEATURE_NAME, reducers } from './sigtap.state';
 import { ProcedimentoApi } from './procedimento/procedimento.api';
@@ -26,22 +26,21 @@ import { ImporterEffects } from './importer/importer.effects';
 
 @NgModule({
     imports: [
-        SharedModule,
-        CommonModule,
-        EffectsModule.forFeature([
-            ProcedimentoEffects,
-            ProcedimentoCidEffects,
-            ProcedimentoDescricaoEffects,
-            ImporterEffects
-        ]),
-        StoreModule.forFeature(FEATURE_NAME, reducers),
-        SigtapRoutingModule,
-        ProcedimentoListComponent,
-        ProcedimentoComponent,
-        ProcedimentoDetalheComponent,
-        ProcedimentoCidComponent,
-        ProcedimentoDescricaoComponent
-    ],
+    CommonModule,
+    EffectsModule.forFeature([
+        ProcedimentoEffects,
+        ProcedimentoCidEffects,
+        ProcedimentoDescricaoEffects,
+        ImporterEffects
+    ]),
+    StoreModule.forFeature(FEATURE_NAME, reducers),
+    SigtapRoutingModule,
+    ProcedimentoListComponent,
+    ProcedimentoComponent,
+    ProcedimentoDetalheComponent,
+    ProcedimentoCidComponent,
+    ProcedimentoDescricaoComponent
+],
     providers: [
         ProcedimentoApi,
         ProcedimentoCidApi,
