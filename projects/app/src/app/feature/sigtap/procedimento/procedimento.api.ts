@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 import { environment } from 'projects/app/src/environments/environment';
 import { Procedimento } from './procedimento.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ProcedimentoApi {
 
     readonly API = `${environment.apiUrl}/sigtap-procedimento`;

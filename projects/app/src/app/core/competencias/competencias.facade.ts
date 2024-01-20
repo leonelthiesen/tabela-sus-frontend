@@ -4,7 +4,9 @@ import { Store } from '@ngrx/store';
 import * as competenciasActions from './competencias.actions';
 import { CompetenciasState, selectCompetencias, selectCompetenciaSelectedId } from './competencias.state';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class CompetenciasFacade {
     competencias$ = this.store.select(selectCompetencias);
     competenciaSelectedId$ = this.store.select(selectCompetenciaSelectedId);

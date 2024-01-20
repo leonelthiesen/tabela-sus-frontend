@@ -5,7 +5,9 @@ import { AppState } from '../core.state';
 import { actionSettingsChangeTheme } from './settings.actions';
 import { selectSettings, selectTheme, selectThemeClass } from './settings.selectors';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class SettingsFacade {
     theme$ = this.store.select(selectTheme);
     themeClass$ = this.store.select(selectThemeClass);

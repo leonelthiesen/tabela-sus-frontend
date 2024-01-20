@@ -4,7 +4,9 @@ import { Store } from '@ngrx/store';
 import * as procedimentosActions from './procedimento.actions';
 import { ProcedimentoState, selectProcedimentos, selectProcedimentosFilter, selectProcedimento } from './procedimento.state';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ProcedimentoFacade {
     procedimentos$ = this.store.select(selectProcedimentos);
     procedimentosFilter$ = this.store.select(selectProcedimentosFilter);

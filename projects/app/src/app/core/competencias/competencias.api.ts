@@ -5,7 +5,9 @@ import { Observable } from 'rxjs';
 import { environment } from 'projects/app/src/environments/environment';
 import { Competencia } from './competencia.model';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class CompetenciasApi {
 
     readonly API = `${environment.apiUrl}/sigtap-competencia`;

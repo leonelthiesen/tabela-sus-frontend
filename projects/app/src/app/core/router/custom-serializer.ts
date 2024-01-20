@@ -3,7 +3,9 @@ import { RouterStateSnapshot } from '@angular/router';
 import { RouterStateSerializer } from '@ngrx/router-store';
 import { RouterStateUrl } from './router.state';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
     serialize(routerState: RouterStateSnapshot): RouterStateUrl {
         let route = routerState.root;

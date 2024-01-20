@@ -3,7 +3,9 @@ import { Store } from '@ngrx/store';
 
 import * as importerActions from './importer.actions';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ImporterFacade {
     constructor(private store: Store) { }
 

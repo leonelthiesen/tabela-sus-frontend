@@ -5,7 +5,9 @@ import * as procedimentoDescricaoActions from './procedimento-descricao.actions'
 import { ProcedimentoDescricaoState } from './procedimento-descricao.model';
 import { selectProcedimentoDescricao, selectProcedimentoDescricaoLoading } from './procedimento-descricao.selectors';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ProcedimentoDescricaoFacade {
     procedimentoDescricao$ = this.store.select(selectProcedimentoDescricao);
     loading$ = this.store.select(selectProcedimentoDescricaoLoading);

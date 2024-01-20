@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 
 import { environment } from 'projects/app/src/environments/environment';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ImporterApi {
 
     readonly API = `${environment.apiUrl}/sigtap-importer`;

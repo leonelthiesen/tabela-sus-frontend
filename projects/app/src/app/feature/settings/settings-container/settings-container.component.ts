@@ -10,7 +10,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-    selector: 'ts-settings',
+    selector: 'ts-settings-container',
     templateUrl: './settings-container.component.html',
     styleUrls: ['./settings-container.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
