@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { withLatestFrom, switchMap, map, catchError, concatMap } from 'rxjs/operators';
 import { of } from 'rxjs';
 
-import { AppState } from '../../../core/core.module';
+import { AppState } from '../../../core/core.state';
 import { ProcedimentoCidApi } from './procedimento-cid.api';
 import * as procedimentoCidActions from './procedimento-cid.actions';
 import { selectCompetenciaSelectedId } from '../../../core/competencias/competencias.state';

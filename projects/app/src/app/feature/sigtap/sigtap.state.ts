@@ -1,6 +1,6 @@
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
 
-import { AppState } from '../../core/core.module';
+import { AppState } from '../../core/core.state';
 import { ProcedimentoState } from './procedimento/procedimento.state';
 import { ProcedimentoCidState } from './procedimento-cid/procedimento-cid.model';
 import { procedimentoReducer } from './procedimento/procedimento.reducer';
@@ -12,7 +12,7 @@ export const FEATURE_NAME = 'sigtap';
 
 export const selectSigtapState = createFeatureSelector<SigtapState>(FEATURE_NAME);
 
-export const reducers: ActionReducerMap<SigtapState> = {
+export const sigtapReducers: ActionReducerMap<SigtapState> = {
     procedimento: procedimentoReducer,
     procedimentoCid: procedimentoCidReducer,
     procedimentoDescricao: procedimentoDescricaoReducer

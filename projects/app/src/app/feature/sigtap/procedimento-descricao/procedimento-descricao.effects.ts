@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import * as procedimentoDescricaoActions from './procedimento-descricao.actions';
-import { AppState } from '../../../core/core.module';
+import { AppState } from '../../../core/core.state';
 import { selectCompetenciaSelectedId } from '../../../core/competencias/competencias.state';
 import { selectProcedimento } from '../procedimento/procedimento.state';
 import { ProcedimentoDescricaoApi } from './procedimento-descricao.api';

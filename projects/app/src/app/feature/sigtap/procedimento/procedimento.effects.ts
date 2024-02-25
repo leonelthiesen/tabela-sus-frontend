@@ -27,7 +27,7 @@ export class ProcedimentoEffects {
                     this.store.select(selectProcedimentosFilter)
                 ),
             )),
-            switchMap(([action, competenciaId, procedimentosFilter]) =>
+            switchMap(([action, competenciaId, procedimentosFilter]) => 
                 this.procedimentoApi.getByCompetenciaIdNome(competenciaId, procedimentosFilter).pipe(
                     map(procedimentos => procedimentosActions.procedimentosGetSuccess({ procedimentos })),
                     catchError(error => of(procedimentosActions.procedimentosGetError({ error })))

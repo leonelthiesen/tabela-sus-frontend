@@ -1,4 +1,4 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 
 import { ProcedimentoDescricaoState } from './procedimento-descricao.model';
 import * as procedimentoDescricaoActions from './procedimento-descricao.actions';
@@ -7,7 +7,7 @@ export const initialState: ProcedimentoDescricaoState = {
     loading: false
 };
 
-const reducer = createReducer(
+export const procedimentoDescricaoReducer = createReducer(
     initialState,
     on(procedimentoDescricaoActions.procedimentoDescricaoGet, (state) => ({
         ...state,
@@ -26,6 +26,3 @@ const reducer = createReducer(
     }))
 );
 
-export function procedimentoDescricaoReducer(state: ProcedimentoDescricaoState | undefined, action: Action) {
-    return reducer(state, action);
-}

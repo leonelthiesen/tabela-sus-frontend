@@ -1,4 +1,4 @@
-import { createReducer, on, Action } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 
 import { ProcedimentoCidState } from './procedimento-cid.model';
 import * as procedimentoCidActions from './procedimento-cid.actions';
@@ -8,7 +8,7 @@ export const initialState: ProcedimentoCidState = {
     loading: false
 };
 
-const reducer = createReducer(
+export const procedimentoCidReducer = createReducer(
     initialState,
     on(procedimentoCidActions.procedimentoCidGet, (state) => ({
         ...state,
@@ -27,6 +27,3 @@ const reducer = createReducer(
     }))
 );
 
-export function procedimentoCidReducer(state: ProcedimentoCidState | undefined, action: Action) {
-    return reducer(state, action);
-}

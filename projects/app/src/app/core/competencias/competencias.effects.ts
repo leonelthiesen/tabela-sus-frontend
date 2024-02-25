@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { withLatestFrom, tap, switchMap, map, catchError, concatAll, first, concatMap, mergeMap, filter } from 'rxjs/operators';
 import { of, combineLatest } from 'rxjs';
 
-import { AppState } from '../core.module';
+import { AppState } from '../core.state';
 import * as competenciasActions from './competencias.actions';
 import { selectCompetencias, selectCompetenciaSelectedId } from './competencias.state';
 import { CompetenciasApi } from './competencias.api';

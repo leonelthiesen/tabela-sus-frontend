@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 
-import { AppState } from '../../../core/core.module';
+import { AppState } from '../../../core/core.state';
 import { selectSigtapState, SigtapState } from '../sigtap.state';
 import { Procedimento } from './procedimento.model';
 

@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { AppState } from '../core.module';
+import { AppState } from '../core.state';
 import { Competencia } from './competencia.model';
 
 export const FEATURE_NAME = 'competencias';

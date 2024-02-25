@@ -1,6 +1,13 @@
-import { importProvidersFrom } from '@angular/core';
 import { Routes } from '@angular/router';
-import { SigtapModule } from './feature/sigtap/sigtap.module';
+import { provideEffects } from '@ngrx/effects';
+import { provideState } from '@ngrx/store';
+import { settingsReducer } from './core/settings/settings.reducer';
+import { SettingsEffects } from './core/settings/settings.effects';
+import { sigtapReducers } from './feature/sigtap/sigtap.state';
+import { ProcedimentoEffects } from './feature/sigtap/procedimento/procedimento.effects';
+import { ProcedimentoCidEffects } from './feature/sigtap/procedimento-cid/procedimento-cid.effects';
+import { ProcedimentoDescricaoEffects } from './feature/sigtap/procedimento-descricao/procedimento-descricao.effects';
+import { ImporterEffects } from './feature/sigtap/importer/importer.effects';
 
 export const APP_ROUTES: Routes = [
     {
@@ -15,19 +22,27 @@ export const APP_ROUTES: Routes = [
     {
         path: 'admin',
         loadChildren: () => import('./feature/admin/admin.routes').then(m => m.ADMIN_ROUTES),
-        providers: [
-            importProvidersFrom(
-                SigtapModule    
-            )
-        ]
     },
     {
         path: 'sigtap',
-        loadChildren: () => import('./feature/sigtap/sigtap.routes').then(m => m.SIGTAP_ROUTES)
+        loadChildren: () => import('./feature/sigtap/sigtap.routes').then(m => m.SIGTAP_ROUTES),
+        providers: [
+            provideState("sigtap", sigtapReducers),
+            provideEffects([
+                ProcedimentoEffects,
+                ProcedimentoCidEffects,
+                ProcedimentoDescricaoEffects,
+                ImporterEffects,                
+            ]),
+        ],
     },
     {
         path: 'settings',
-        loadChildren: () => import('./feature/settings/settings.routes').then(m => m.SETTINGS_ROUTES)
+        loadChildren: () => import('./feature/settings/settings.routes').then(m => m.SETTINGS_ROUTES),
+        providers: [
+            provideState("settings", settingsReducer),
+            provideEffects([SettingsEffects]),
+        ],
     },
     {
         path: '**',
